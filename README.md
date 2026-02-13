@@ -2,6 +2,8 @@
 
 A Typst package to organise exercises and defer their solutions.
 
+Somewhat similar to <https://typst.app/universe/package/stash>.
+
 ## Example usage
 
 See the [manual](https://github.com/mkorje/typst-exercism/releases/download/v1.0.0/manual.pdf) for more details.

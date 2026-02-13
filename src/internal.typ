@@ -243,6 +243,7 @@
       it.body,
       it.supplement,
       // Hack for now...
+      // Use `counter.display(at: ...)` in 0.15.
       query(label(global-name("number", identifier, item.hash))).first().value,
       map(it.caption, x => x.body),
       label(global-name("question", identifier, item.hash)),
