@@ -1,17 +1,11 @@
-# exercism
+#import "/src/lib.typ" as exercism
 
-A Typst package to organise exercises and defer their solutions.
-
-Somewhat similar to <https://typst.app/universe/package/stash>, <https://typst.app/universe/package/exercise-bank>.
-
-## Example usage
-
-See the [manual](https://github.com/mkorje/typst-exercism/releases/download/v1.0.0/manual.pdf) for more details.
-
-```typ
-#import "@preview/exercism:1.0.0"
+#import "@preview/layout-ltd:0.1.0": layout-limiter
+#show: layout-limiter.with(max-iterations: 3)
 
 #show ref: exercism.show-ref
+#show ref: set text(green)
+#show link: set text(blue)
 
 #let exercise = exercism.new(
   "exercise",
@@ -31,12 +25,14 @@ See @fermat.
   supplement,
   number,
   title,
-  _,
+  solution,
 ) => {
   let title = if title != none [(#title)] else []
   block[
     *#supplement #number.* #title
     #body
+    //#ref(solution)
+    #link(solution)[Solution]
   ]
 })
 
@@ -46,12 +42,13 @@ See @fermat.
   Yes!
 ]
 
-#context exercism.solutions("exercise", (body, _, number, _, _) => {
+#context exercism.solutions("exercise", (body, _, number, _, question) => {
   block[
     *Exercise #number.*
     #body
+    #ref(question)
+    #link(question)[Question]
   ]
 })
-```
 
-![example](https://github.com/user-attachments/assets/95efbaa2-8c93-421f-80af-c2a045065dbf)
+@fermat

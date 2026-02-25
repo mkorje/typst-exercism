@@ -169,10 +169,6 @@
         map(it.caption, x => x.body),
         label(global-name("solution", identifier, item.hash)),
       )
-      [
-        #metadata(number)
-        #label(global-name("number", identifier, item.hash))
-      ]
     }
     #figure(
       item.question,
@@ -239,15 +235,21 @@
     env.group,
     x => x.at(group, default: ()),
   ) [
-    #show figure.where(kind: kind): it => formatting(
-      it.body,
-      it.supplement,
-      // Hack for now...
-      // Use `counter.display(at: ...)` in 0.15.
-      query(label(global-name("number", identifier, item.hash))).first().value,
-      map(it.caption, x => x.body),
-      label(global-name("question", identifier, item.hash)),
-    )
+    #show figure.where(kind: kind): it => {
+      let kind = global-name(
+        "kind",
+        map_or(group, x => identifier + "#" + group, identifier),
+        "question",
+      )
+      let number = counter(figure.where(kind: kind)).display(at: label(global-name("question", identifier, item.hash)))
+      formatting(
+        it.body,
+        it.supplement,
+        number,
+        map(it.caption, x => x.body),
+        label(global-name("question", identifier, item.hash)),
+      )
+    }
     #figure(
       item.solution,
       kind: kind,
