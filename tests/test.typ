@@ -1,7 +1,7 @@
 #import "/src/lib.typ" as exercism
 
 #import "@preview/layout-ltd:0.1.0": layout-limiter
-#show: layout-limiter.with(max-iterations: 3)
+#show: layout-limiter.with(max-iterations: 2)
 
 #show ref: exercism.show-ref
 #show ref: set text(green)
@@ -32,7 +32,7 @@ See @fermat.
     *#supplement #number.* #title
     #body
     //#ref(solution)
-    #link(solution)[Solution]
+    #exercism.opposite-link(solution, [Solution])
   ]
 })
 
@@ -46,8 +46,8 @@ See @fermat.
   block[
     *Exercise #number.*
     #body
-    #ref(question)
-    #link(question)[Question]
+    #exercism.opposite-ref(question, [Exercise #number])
+    #exercism.opposite-link(question, [Question])
   ]
 })
 
