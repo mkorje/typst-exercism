@@ -4,10 +4,10 @@ A Typst package to organise exercises and defer their solutions.
 
 ## Example usage
 
-See the [manual](https://github.com/mkorje/typst-exercism/releases/download/v1.0.0/manual.pdf) for more details.
+See the [manual](./manual.pdf) for more details.
 
 ```typ
-#import "@preview/exercism:1.0.0"
+#import "@preview/exercism:1.1.0"
 
 #show ref: exercism.show-ref
 
@@ -52,4 +52,8 @@ See @fermat.
 })
 ```
 
-![example](https://github.com/user-attachments/assets/95efbaa2-8c93-421f-80af-c2a045065dbf)
+![Rendered output of the example Typst code](./example.svg)
+
+## Similar packages
+
+There are a couple similar packages on Typst Universe that might be of interest: [stash](https://typst.app/universe/package/stash), [exercise-bank](https://typst.app/universe/package/exercise-bank), and [answerly](https://typst.app/universe/package/answerly).
